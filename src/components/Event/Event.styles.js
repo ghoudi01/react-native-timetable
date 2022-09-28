@@ -5,14 +5,16 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     position: 'absolute',
     paddingVertical: 2,
-    paddingHorizontal: 2,
-    borderRadius: 7,
+   alignItems:"center",
+   
+   
     flex: 1,
   },
   title: {
-    color: '#322425',
-    textAlign: 'left',
-    fontSize: 13,
+    color: '#FFF',
+    textAlign: 'center',
+    fontSize: 14,
+    marginHorizontal:2
   },
   description: {
     color: '#777',
