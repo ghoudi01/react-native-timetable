@@ -31,26 +31,34 @@ class Events extends Component {
     // is events for specific day in range
     const total = [];
     let initial = 0;
+    console.log("-----------")
+
+    // loop events and set index 
+
     for (let i = initial; i < (nDays + initial); i += 1) {
       // current date in nDays, calculated from selected date
       const currenDate = moment(selectedDate).add(i, 'd');
-
       // filter events that have startTime/endTime in current date
       let filteredEvents = events.filter((item) => {
-        return currenDate.isSame(item.startTime, 'day') || currenDate.isSame(item.endTime, 'day');
+        let dayOFWeek = moment(item.startTime).isoWeekday()
+        if (dayOFWeek == 7)
+          dayOFWeek = 0
+
+        return (dayOFWeek == i)
+        // return currenDate.isSame(item.startTime, 'day') || currenDate.isSame(item.endTime, 'day');
       });
 
-      filteredEvents = filteredEvents.map((item) => {
-        let { startTime } = item;
-        // if endTime is in next day, set starDate to begin time of current date (00:00)
-        if (!currenDate.isSame(startTime, 'day')) {
-          startTime = currenDate.startOf('day').toDate();
-        }
-        return {
-          ...item,
-          startTime,
-        };
-      });
+      // filteredEvents = filteredEvents.map((item) => {
+      //   let { startTime } = item;
+      //   // if endTime is in next day, set starDate to begin time of current date (00:00)
+      //   if (!currenDate.isSame(startTime, 'day')) {
+      //     startTime = currenDate.startOf('day').toDate();
+      //   }
+      //   return {
+      //     ...item,
+      //     startTime,
+      //   };
+      // });
       total.push(filteredEvents);
     }
     return total;
