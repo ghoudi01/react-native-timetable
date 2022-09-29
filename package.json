@@ -14,11 +14,7 @@
     "react-native",
     "timetable"
   ],
-  "author": {
-    "name": "ghoudi",
-    "email": "ghoudi31@gmail.com",
-    
-  },
+  "author":"ghoudi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gomjellie/react-native-timetable/issues"
